@@ -61,9 +61,7 @@ function handleGuessSelect(index: number) {
             <IconReload />
           </button>
         </template>
-        <p class="mb-3 rounded-lg bg-orange px-3 py-2.5 text-center text-base font-bold text-paper">
-          🙈 プレイヤー{{ store.answerer }}さんだけ見てね
-        </p>
+        <Banner class="mb-3">プレイヤー{{ store.answerer }}さんだけ見てね</Banner>
         <p class="mb-4 text-lg font-bold text-ink">{{ store.currentQuestion.theme }}</p>
         <p class="mb-3 text-sm text-ink">👑 1位と 💀 最下位をえらんでね</p>
         <div class="space-y-2">
@@ -112,9 +110,7 @@ function handleGuessSelect(index: number) {
     <!-- あてる人: 1位と最下位を予想 -->
     <div v-else-if="store.phase === 'guess'" class="space-y-4">
       <TicketCard :header="`第${store.questionIndex + 1}問 / ${store.totalQuestions}`">
-        <p class="mb-1 text-xs text-muted">
-          プレイヤー{{ store.answerer === 1 ? 2 : 1 }}さんが予想してね
-        </p>
+        <Banner class="mb-3">プレイヤー{{ store.answerer === 1 ? 2 : 1 }}さんが予想してね</Banner>
         <p class="mb-4 text-lg font-bold text-ink">{{ store.currentQuestion.theme }}</p>
         <p class="mb-3 text-sm text-ink">👑 1位と 💀 最下位を予想してね</p>
         <div class="space-y-2">

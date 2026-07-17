@@ -29,9 +29,6 @@ export default {
           'sans-serif',
         ],
       },
-      letterSpacing: {
-        cozy: '0.05em',
-      },
     },
   },
 } satisfies Config;

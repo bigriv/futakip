@@ -71,7 +71,7 @@ export const useBestWorstStore = defineStore('bestWorst', () => {
   }
 
   function changeQuestion() {
-    questions.value[questionIndex.value] = deck.draw();
+    questions.value.splice(questionIndex.value, 1, deck.draw());
     answerBest.value = -1;
     answerWorst.value = -1;
   }
