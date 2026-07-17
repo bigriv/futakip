@@ -48,10 +48,7 @@ const duplicateWord = computed(() => {
     <!-- プレイ中 -->
     <div v-if="store.phase === 'play'" class="space-y-4">
       <TicketCard :header="`${difficultyLabel[store.difficulty]} / ${store.turn}手目`">
-        <p class="mb-1 text-xs text-muted">
-          プレイヤー{{ store.currentPlayer }}さんの番だよ
-        </p>
-        <p class="mb-1 text-sm text-muted">こっそり入力してね(声に出さないでね)</p>
+        <Banner icon="🙈" class="mb-3">プレイヤー{{ store.currentPlayer }}さんの番だよ(こっそり入力してね)</Banner>
 
         <div class="my-6 text-center">
           <p class="mb-2 text-sm text-muted">次は…</p>
@@ -127,9 +124,7 @@ const duplicateWord = computed(() => {
         <AppButton variant="secondary" block @click="changeDifficulty()">
           難易度を変える
         </AppButton>
-        <NuxtLink to="/">
-          <AppButton variant="ghost" block>改札へもどる</AppButton>
-        </NuxtLink>
+        <AppButton variant="outline" block @click="navigateTo('/')">改札へもどる</AppButton>
       </div>
     </div>
   </GameLayout>
