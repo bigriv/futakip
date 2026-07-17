@@ -44,16 +44,11 @@ app/
   types/          TypeScript 型定義
 ```
 
-## フォーマット
+## 命名規則
 
-- セミコロン: あり
-- インデント: スペース2つ
-- クォート: シングルクォート
-- トレイリングカンマ: all
-- 1行の最大文字数: 100
+- composable のファイル名は `use` プレフィックス + PascalCase（例: `useDeck.ts`）
 
 ## その他
 
-- composable のファイル名は `use` プレフィックス + PascalCase（例: `useDeck.ts`）
 - Nuxt の auto-import を活用し、明示的な import は最小限にする
 - 仕様書 `spec-futari-talk-kippu.md` を実装の根拠とする
