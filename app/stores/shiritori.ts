@@ -43,7 +43,7 @@ export const useShiritoriStore = defineStore('shiritori', () => {
     const normalized = toHiragana(word.trim());
 
     if (!isValidKana(word.trim())) return 'ひらがな・カタカナで入力してね';
-    if (normalized.length < 2) return '2文字以上で入力してね';
+    if (normalized.length < 3) return '3文字以上で入力してね';
     if (!matchesStartChar(normalized, currentChar.value))
       return `「${currentChar.value}」から始まる言葉を入力してね`;
 
