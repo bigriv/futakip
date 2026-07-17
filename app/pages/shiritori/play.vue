@@ -6,7 +6,6 @@ const inputWord = ref('');
 const errorMessage = ref('');
 
 const difficultyLabel: Record<string, string> = {
-  local: '各駅停車',
   express: '急行(3文字)',
   limited: '特急(4文字)',
   shinkansen: '新幹線(5文字)',
@@ -121,7 +120,7 @@ const duplicateWord = computed(() => {
 
       <div class="space-y-2 px-4">
         <AppButton block @click="replayDifficulty()">
-          もう1本({{ difficultyLabel[store.difficulty] }})
+          {{ difficultyLabel[store.difficulty] }}でもう1本
         </AppButton>
         <AppButton variant="secondary" block @click="changeDifficulty()">
           難易度を変える

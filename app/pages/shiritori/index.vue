@@ -9,7 +9,6 @@ const difficulties: {
   label: string;
   description: string;
 }[] = [
-  { key: 'local', label: '🚃 各駅停車', description: '文字数制限なし(3文字以上)' },
   { key: 'express', label: '🚄 急行', description: '3文字ちょうどの言葉のみ' },
   { key: 'limited', label: '🚅 特急', description: '4文字ちょうどの言葉のみ' },
   { key: 'shinkansen', label: '🚄 新幹線', description: '5文字ちょうどの言葉のみ' },
