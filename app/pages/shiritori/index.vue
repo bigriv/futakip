@@ -30,7 +30,7 @@ function selectDifficulty(diff: ShiritoriDifficulty) {
           <p>すでに出た言葉を言っちゃったら負け。「ん」で終わっても負け。</p>
           <div class="rounded-lg bg-paper-edge/50 p-3 text-xs">
             <p class="font-bold">ルール</p>
-            <p>・ひらがな・カタカナで入力(内部でひらがなに統一)</p>
+            <p>・ひらがな・カタカナで入力</p>
             <p>・「ゃ・ゅ・ょ・っ・ー」も1文字として数えるよ</p>
             <p>・実在する言葉かどうかは2人の話し合いで決めてね</p>
             <p>・にごり(が⇔か)、半にごり(ぱ⇔は)は両方OK</p>
