@@ -6,6 +6,7 @@ type Phase = 'intro' | 'answer' | 'pass' | 'guess' | 'result' | 'pass-next' | 'f
 const TOTAL_ROUNDS = 5;
 
 const judgments = [
+  { maxDiff: 0, label: 'ピッタリ!', score: 4 },
   { maxDiff: 5, label: '以心伝心!', score: 3 },
   { maxDiff: 15, label: 'いいかんじ', score: 2 },
   { maxDiff: 30, label: 'おしい', score: 1 },
@@ -13,10 +14,10 @@ const judgments = [
 ] as const;
 
 const titleThresholds = [
-  { min: 0, max: 3, title: 'すれちがい\n列車…', comment: 'もっと一緒にいよう!' },
-  { min: 4, max: 7, title: 'まずまずの\n相性!', comment: '伸びしろあり' },
-  { min: 8, max: 11, title: 'いい感じ!', comment: '心の距離が近いね' },
-  { min: 12, max: 15, title: 'テレパシー\nレベル!', comment: '通じ合いすぎ!' },
+  { min: 0, max: 4, title: 'すれちがい\n列車…', comment: 'もっと一緒にいよう!' },
+  { min: 5, max: 9, title: 'まずまずの\n相性!', comment: '伸びしろあり' },
+  { min: 10, max: 14, title: 'いい感じ!', comment: '心の距離が近いね' },
+  { min: 15, max: 20, title: 'テレパシー\nレベル!', comment: '通じ合いすぎ!' },
 ];
 
 function generateSecretNumber(): number {

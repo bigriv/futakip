@@ -16,7 +16,8 @@ onMounted(() => {
           <p>あてる人はスライダーで数字を予想! 誤差が小さいほど高得点。</p>
           <div class="rounded-lg bg-paper-edge/50 p-3 text-xs">
             <p class="font-bold">スコア</p>
-            <p>誤差0〜5: 以心伝心!(3点)</p>
+            <p>誤差0: ピッタリ!(4点)</p>
+            <p>誤差1〜5: 以心伝心!(3点)</p>
             <p>誤差6〜15: いいかんじ(2点)</p>
             <p>誤差16〜30: おしい(1点)</p>
             <p>誤差31以上: すれちがい…(0点)</p>
@@ -147,7 +148,7 @@ onMounted(() => {
         <p class="mb-4 text-center text-sm text-muted">
           {{ store.finalTitle.comment }}
         </p>
-        <ScoreDisplay :score="store.totalScore" :max-score="15" label="合計スコア" />
+        <ScoreDisplay :score="store.totalScore" :max-score="20" label="合計スコア" />
         <div class="mt-4 space-y-1">
           <div
             v-for="(score, i) in store.roundScores"
