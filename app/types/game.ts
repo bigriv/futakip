@@ -9,7 +9,7 @@ export interface PittariTheme {
   high: string;
 }
 
-export type ShiritoriDifficulty = 'local' | 'express' | 'limited' | 'shinkansen';
+export type ShiritoriDifficulty = 'local' | 'express' | 'limited';
 
 export interface ShiritoriEntry {
   word: string;
