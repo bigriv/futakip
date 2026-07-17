@@ -61,7 +61,7 @@ function handleGuessSelect(index: number) {
             <IconReload />
           </button>
         </template>
-        <Banner class="mb-3">プレイヤー{{ store.answerer }}さんだけ見てね</Banner>
+        <Banner icon="🙈" class="mb-3">プレイヤー{{ store.answerer }}さんだけ見てね</Banner>
         <p class="mb-4 text-lg font-bold text-ink">{{ store.currentQuestion.theme }}</p>
         <p class="mb-3 text-sm text-ink">👑 1位と 💀 最下位をえらんでね</p>
         <div class="space-y-2">
