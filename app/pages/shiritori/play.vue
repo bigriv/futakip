@@ -117,17 +117,16 @@ const duplicateWord = computed(() => {
           :history="store.history"
           :duplicate-word="duplicateWord"
         />
+        <div class="mt-5 space-y-2">
+          <AppButton block @click="replayDifficulty()">
+            {{ difficultyLabel[store.difficulty] }}でもう1本
+          </AppButton>
+          <AppButton variant="secondary" block @click="changeDifficulty()">
+            難易度を変える
+          </AppButton>
+          <AppButton variant="outline" block @click="navigateTo('/')">改札へもどる</AppButton>
+        </div>
       </TicketCard>
-
-      <div class="space-y-2 px-4">
-        <AppButton block @click="replayDifficulty()">
-          {{ difficultyLabel[store.difficulty] }}でもう1本
-        </AppButton>
-        <AppButton variant="secondary" block @click="changeDifficulty()">
-          難易度を変える
-        </AppButton>
-        <AppButton variant="outline" block @click="navigateTo('/')">改札へもどる</AppButton>
-      </div>
     </div>
   </GameLayout>
 </template>
