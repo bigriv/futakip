@@ -6,7 +6,6 @@ const difficultyLengths: Record<ShiritoriDifficulty, number> = {
   local: 3,
   express: 4,
   limited: 5,
-  shinkansen: 6,
 };
 
 const startCharCandidates =

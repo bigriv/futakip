@@ -9,7 +9,6 @@ const difficultyLabel: Record<string, string> = {
   local: '鈍行(3文字)',
   express: '急行(4文字)',
   limited: '特急(5文字)',
-  shinkansen: '新幹線(6文字)',
 };
 
 onMounted(() => {
