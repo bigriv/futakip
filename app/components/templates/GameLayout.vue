@@ -13,7 +13,7 @@ withDefaults(defineProps<Props>(), {
     <header class="mb-4 flex items-center justify-between px-2">
       <NuxtLink
         to="/"
-        class="flex items-center gap-1 rounded-lg px-3 py-2 text-sm font-bold text-muted transition-colors hover:text-paper"
+        class="flex items-center gap-1 rounded-lg border border-paper/20 bg-paper/10 px-3 py-2 text-sm font-bold text-paper transition-colors hover:bg-paper/20"
       >
         ← 改札へ
       </NuxtLink>

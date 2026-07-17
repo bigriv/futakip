@@ -15,6 +15,7 @@ export default {
         ink: '#2B2A26',
         orange: '#EE8635',
         green: '#3E7C4F',
+        blue: '#3A6EA5',
         stamp: '#C9452E',
         muted: '#8B93A7',
       },
@@ -22,10 +23,14 @@ export default {
         sans: [
           'Hiragino Kaku Gothic ProN',
           'Hiragino Sans',
+          'Meiryo',
           'Yu Gothic',
           'Noto Sans JP',
           'sans-serif',
         ],
+      },
+      letterSpacing: {
+        cozy: '0.05em',
       },
     },
   },

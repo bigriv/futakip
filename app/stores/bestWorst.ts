@@ -1,15 +1,7 @@
 import type { BestWorstQuestion } from '~/types/game';
 import { bestWorstQuestions } from '~/data/bestWorstQuestions';
 
-type Phase =
-  | 'intro'
-  | 'answer-best'
-  | 'answer-worst'
-  | 'pass'
-  | 'guess-best'
-  | 'guess-worst'
-  | 'result'
-  | 'final';
+type Phase = 'intro' | 'answer' | 'pass' | 'guess' | 'result' | 'final';
 
 const TOTAL_QUESTIONS = 6;
 
@@ -23,8 +15,8 @@ const conversationPrompts = [
 ];
 
 const titleThresholds = [
-  { min: 0, max: 4, title: 'まだまだこれから!', comment: 'もっとおしゃべりしよう' },
-  { min: 5, max: 8, title: 'なかなかの読み合い!', comment: 'いい勝負だね' },
+  { min: 0, max: 4, title: 'まだまだ\nこれから!', comment: 'もっとおしゃべりしよう' },
+  { min: 5, max: 8, title: 'なかなかの\n読み合い!', comment: 'いい勝負だね' },
   { min: 9, max: 13, title: 'お見通し!', comment: '相手のことよく分かってるね' },
   { min: 14, max: 18, title: '以心伝心!', comment: 'ふたりの絆はホンモノ' },
 ];
@@ -75,32 +67,54 @@ export const useBestWorstStore = defineStore('bestWorst', () => {
     answerWorst.value = -1;
     guessBest.value = -1;
     guessWorst.value = -1;
-    phase.value = 'answer-best';
+    phase.value = 'answer';
+  }
+
+  function changeQuestion() {
+    questions.value[questionIndex.value] = deck.draw();
+    answerBest.value = -1;
+    answerWorst.value = -1;
   }
 
   function selectBest(index: number) {
-    answerBest.value = index;
-    phase.value = 'answer-worst';
+    answerBest.value = answerBest.value === index ? -1 : index;
+    if (answerWorst.value === index) answerWorst.value = -1;
   }
 
   function selectWorst(index: number) {
-    answerWorst.value = index;
+    answerWorst.value = answerWorst.value === index ? -1 : index;
+    if (answerBest.value === index) answerBest.value = -1;
+  }
+
+  const answerReady = computed(
+    () => answerBest.value >= 0 && answerWorst.value >= 0,
+  );
+
+  function confirmAnswer() {
     phase.value = 'pass';
   }
 
   function afterPass() {
     guessBest.value = -1;
     guessWorst.value = -1;
-    phase.value = 'guess-best';
+    phase.value = 'guess';
   }
 
   function guessBestOption(index: number) {
-    guessBest.value = index;
-    phase.value = 'guess-worst';
+    guessBest.value = guessBest.value === index ? -1 : index;
+    if (guessWorst.value === index) guessWorst.value = -1;
   }
 
   function guessWorstOption(index: number) {
-    guessWorst.value = index;
+    guessWorst.value = guessWorst.value === index ? -1 : index;
+    if (guessBest.value === index) guessBest.value = -1;
+  }
+
+  const guessReady = computed(
+    () => guessBest.value >= 0 && guessWorst.value >= 0,
+  );
+
+  function confirmGuess() {
     const guesserIndex = answerer.value === 1 ? 1 : 0;
     scores.value[guesserIndex] += roundScore.value;
     phase.value = 'result';
@@ -117,7 +131,7 @@ export const useBestWorstStore = defineStore('bestWorst', () => {
     answerWorst.value = -1;
     guessBest.value = -1;
     guessWorst.value = -1;
-    phase.value = 'answer-best';
+    phase.value = 'answer';
   }
 
   function reset() {
@@ -143,11 +157,16 @@ export const useBestWorstStore = defineStore('bestWorst', () => {
     finalTitle,
     currentConversationPrompt,
     start,
+    changeQuestion,
+    answerReady,
+    guessReady,
     selectBest,
     selectWorst,
+    confirmAnswer,
     afterPass,
     guessBestOption,
     guessWorstOption,
+    confirmGuess,
     nextQuestion,
     reset,
   };

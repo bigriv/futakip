@@ -1,17 +1,28 @@
 <script setup lang="ts">
 interface Props {
   text: string;
+  size?: 'sm' | 'md';
 }
 
-defineProps<Props>();
+withDefaults(defineProps<Props>(), {
+  size: 'md',
+});
 </script>
 
 <template>
   <div class="stamp-container inline-flex items-center justify-center">
     <div
-      class="stamp-mark flex items-center justify-center w-28 h-28 rounded-full border-4 border-stamp"
+      :class="[
+        'stamp-mark flex items-center justify-center rounded-full border-stamp',
+        size === 'sm' ? 'w-16 h-16 border-[3px]' : 'w-28 h-28 border-4',
+      ]"
     >
-      <span class="text-stamp text-2xl font-bold text-center leading-tight">
+      <span
+        :class="[
+          'text-stamp font-bold text-center leading-tight whitespace-pre-line',
+          size === 'sm' ? 'text-sm' : 'text-xl',
+        ]"
+      >
         {{ text }}
       </span>
     </div>

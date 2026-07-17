@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  variant?: 'primary' | 'secondary' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   block?: boolean;
   disabled?: boolean;
@@ -25,6 +25,8 @@ withDefaults(defineProps<Props>(), {
         'bg-green text-paper shadow-md hover:brightness-110': variant === 'secondary',
         'bg-transparent text-muted border border-muted/30 hover:bg-white/5':
           variant === 'ghost',
+        'bg-transparent text-navy border-2 border-navy shadow-md hover:bg-navy/5':
+          variant === 'outline',
       },
       {
         'px-3 py-1.5 text-sm min-h-[36px]': size === 'sm',

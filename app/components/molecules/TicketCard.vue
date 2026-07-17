@@ -10,8 +10,9 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div class="ticket-card relative mx-4 rounded bg-paper px-6 py-5 shadow-lg">
-    <div v-if="header" class="mb-3 border-b border-dashed border-paper-edge pb-2">
+    <div v-if="header || $slots['header-action']" class="mb-3 flex items-center justify-between border-b border-dashed border-paper-edge pb-2">
       <span class="text-xs font-bold tracking-widest text-muted">{{ header }}</span>
+      <slot name="header-action" />
     </div>
     <slot />
     <div class="ticket-notch-left" />
