@@ -12,9 +12,11 @@ const difficultyLabel: Record<string, string> = {
   shinkansen: '新幹線(5文字)',
 };
 
-if (!store.currentChar) {
-  router.replace('/shiritori');
-}
+onMounted(() => {
+  if (!store.currentChar) {
+    router.replace('/shiritori');
+  }
+});
 
 function handleSubmit() {
   errorMessage.value = '';
