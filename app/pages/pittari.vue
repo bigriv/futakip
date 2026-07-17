@@ -32,9 +32,7 @@ onMounted(() => {
     <!-- こたえる人: 秘密の数字を見る -->
     <div v-else-if="store.phase === 'answer'" class="space-y-4">
       <TicketCard :header="`ラウンド${store.roundIndex + 1} / ${store.totalRounds}`">
-        <p class="mb-1 text-xs text-muted">
-          プレイヤー{{ store.answerer }}さんだけ見てね
-        </p>
+        <Banner icon="🙈" class="mb-3">プレイヤー{{ store.answerer }}さんだけ見てね</Banner>
         <div class="mb-4 rounded-lg bg-paper-edge/50 p-4 text-center">
           <p class="mb-1 text-sm text-muted">お題スケール</p>
           <p class="text-lg font-bold text-ink">{{ store.currentTheme.theme }}</p>
@@ -66,9 +64,7 @@ onMounted(() => {
     <!-- あてる人: スライダーで予想 -->
     <div v-else-if="store.phase === 'guess'" class="space-y-4">
       <TicketCard :header="`ラウンド${store.roundIndex + 1} / ${store.totalRounds}`">
-        <p class="mb-1 text-xs text-muted">
-          プレイヤー{{ store.answerer === 1 ? 2 : 1 }}さんが予想してね
-        </p>
+        <Banner class="mb-3">プレイヤー{{ store.answerer === 1 ? 2 : 1 }}さんが予想してね</Banner>
         <div class="mb-4 rounded-lg bg-paper-edge/50 p-4 text-center">
           <p class="mb-1 text-sm text-muted">お題スケール</p>
           <p class="text-lg font-bold text-ink">{{ store.currentTheme.theme }}</p>
@@ -157,9 +153,7 @@ onMounted(() => {
         </div>
         <div class="mt-5 space-y-2">
           <AppButton block @click="store.start()">もう1回あそぶ</AppButton>
-          <NuxtLink to="/">
-            <AppButton variant="ghost" block>改札へもどる</AppButton>
-          </NuxtLink>
+          <AppButton variant="outline" block @click="navigateTo('/')">改札へもどる</AppButton>
         </div>
       </TicketCard>
     </div>

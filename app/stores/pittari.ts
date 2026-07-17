@@ -13,10 +13,10 @@ const judgments = [
 ] as const;
 
 const titleThresholds = [
-  { min: 0, max: 3, title: 'すれちがい列車…', comment: 'もっと一緒にいよう!' },
-  { min: 4, max: 7, title: 'まずまずの相性!', comment: '伸びしろあり' },
+  { min: 0, max: 3, title: 'すれちがい\n列車…', comment: 'もっと一緒にいよう!' },
+  { min: 4, max: 7, title: 'まずまずの\n相性!', comment: '伸びしろあり' },
   { min: 8, max: 11, title: 'いい感じ!', comment: '心の距離が近いね' },
-  { min: 12, max: 15, title: 'テレパシーレベル!', comment: '通じ合いすぎ!' },
+  { min: 12, max: 15, title: 'テレパシー\nレベル!', comment: '通じ合いすぎ!' },
 ];
 
 function generateSecretNumber(): number {
