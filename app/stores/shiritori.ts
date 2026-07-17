@@ -3,9 +3,10 @@ import type { ShiritoriDifficulty, ShiritoriEntry } from '~/types/game';
 type Phase = 'play' | 'pass' | 'gameover';
 
 const difficultyLengths: Record<ShiritoriDifficulty, number> = {
-  express: 3,
-  limited: 4,
-  shinkansen: 5,
+  local: 3,
+  express: 4,
+  limited: 5,
+  shinkansen: 6,
 };
 
 const startCharCandidates =

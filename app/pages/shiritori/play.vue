@@ -6,9 +6,10 @@ const inputWord = ref('');
 const errorMessage = ref('');
 
 const difficultyLabel: Record<string, string> = {
-  express: '急行(3文字)',
-  limited: '特急(4文字)',
-  shinkansen: '新幹線(5文字)',
+  local: '鈍行(3文字)',
+  express: '急行(4文字)',
+  limited: '特急(5文字)',
+  shinkansen: '新幹線(6文字)',
 };
 
 onMounted(() => {
