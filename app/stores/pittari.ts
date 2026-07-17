@@ -9,7 +9,7 @@ const judgments = [
   { maxDiff: 5, label: '以心伝心!', score: 3 },
   { maxDiff: 15, label: 'いいかんじ', score: 2 },
   { maxDiff: 30, label: 'おしい', score: 1 },
-  { maxDiff: Infinity, label: 'すれちがい…', score: 0 },
+  { maxDiff: Infinity, label: 'すれ\nちがい…', score: 0 },
 ] as const;
 
 const titleThresholds = [
