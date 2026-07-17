@@ -131,6 +131,13 @@ onMounted(() => {
       </TicketCard>
     </div>
 
+    <!-- ラウンド間の交代スクリーン -->
+    <PassScreen
+      v-else-if="store.phase === 'pass-next'"
+      :player-label="`プレイヤー${store.answerer}`"
+      @next="store.afterPassNext()"
+    />
+
     <!-- 最終結果 -->
     <div v-else-if="store.phase === 'final'" class="space-y-4">
       <TicketCard header="ふたりの通じ合い度">

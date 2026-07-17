@@ -1,7 +1,7 @@
 import type { PittariTheme } from '~/types/game';
 import { pittariThemes } from '~/data/pittariThemes';
 
-type Phase = 'intro' | 'answer' | 'pass' | 'guess' | 'result' | 'final';
+type Phase = 'intro' | 'answer' | 'pass' | 'guess' | 'result' | 'pass-next' | 'final';
 
 const TOTAL_ROUNDS = 5;
 
@@ -87,6 +87,10 @@ export const usePittariStore = defineStore('pittari', () => {
     answerer.value = answerer.value === 1 ? 2 : 1;
     secretNumber.value = generateSecretNumber();
     guessValue.value = 50;
+    phase.value = 'pass-next';
+  }
+
+  function afterPassNext() {
     phase.value = 'answer';
   }
 
@@ -113,6 +117,7 @@ export const usePittariStore = defineStore('pittari', () => {
     afterPass,
     submitGuess,
     nextRound,
+    afterPassNext,
     reset,
   };
 });
